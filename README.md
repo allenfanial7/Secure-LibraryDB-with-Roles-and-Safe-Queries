@@ -117,6 +117,6 @@ It is not a production-level system.
 
 ---
 
-## 🧏🏻 Author
+## 🙋🏻 Author
 
-Made by ALLEN FANIAL while learning Flask and Database 🙂
+Made by ALLEN FANIAL 
