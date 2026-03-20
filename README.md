@@ -1,26 +1,27 @@
 # 📖 Secure LibraryDB with Roles and Safe Queries
 
-## 🔐 Project Overview
+## 🧠 About This Project
 
-This project is a secure Library Management System built using **Flask + SQLite/MySQL** that demonstrates:
+This is a simple library management project made using Python (Flask) and database concepts.
 
-* ✅ MySQL DCL (GRANT, REVOKE, CREATE USER, ROLE)
-* ✅ Role-Based Access Control (RBAC)
-* ✅ SQL Injection Prevention using Parameterized Queries
-* ✅ Query Logging System
-* ✅ Interactive Web UI
+In this project, I tried to understand:
+
+* How database security works
+* How roles and permissions are used (DCL)
+* How to prevent SQL Injection using safe queries
+
+This project is mainly for learning purposes.
 
 ---
 
 ## 🚀 Features
 
-* 📚 Book Library (20+ books with categories)
-* ✍️ Student Registration (Safe INSERT queries)
-* ⭐ Book Review System
-* 🔐 Role-Based Access (Librarian, Assistant, Student)
-* 🛡️ SQL Injection Protection
-* 📊 Query Audit Log
-* 📈 Permission Matrix Visualization
+* 📚 Shows different books by category
+* ✍️ Student registration form
+* ⭐ Students can give reviews to books
+* 🔐 Different roles (Librarian, Assistant, Student)
+* 🛡️ Safe database queries (no SQL injection)
+* 📊 Shows query logs (what is happening in database)
 
 ---
 
@@ -28,26 +29,27 @@ This project is a secure Library Management System built using **Flask + SQLite/
 
 * Python (Flask)
 * SQLite / MySQL
-* mysql-connector-python
 * HTML, CSS, JavaScript
 
 ---
 
-## ⚡ How to Run (Step-by-Step)
+## ▶️ How to Run This Project
 
-### 1️⃣ Install Requirements
+Follow these simple steps:
+
+### Step 1: Install requirements
 
 ```
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Run the Project
+### Step 2: Run the project
 
 ```
 python app.py
 ```
 
-### 3️⃣ Open in Browser
+### Step 3: Open browser
 
 ```
 http://localhost:5000
@@ -55,38 +57,32 @@ http://localhost:5000
 
 ---
 
-## 🔐 DCL Concepts Used
+## 🔐 What I Learned
 
-```sql
-CREATE ROLE librarian_role;
-CREATE ROLE assistant_role;
-CREATE ROLE student_role;
+* What is DCL (Data Control Language)
+* How to use:
 
-GRANT ALL PRIVILEGES ON StudentLibraryDB.* TO librarian_role;
-GRANT SELECT, INSERT ON StudentLibraryDB.* TO assistant_role;
-GRANT SELECT ON StudentLibraryDB.book_info TO student_role;
-
-CREATE USER 'student_user'@'localhost' IDENTIFIED BY 'password';
-
-GRANT student_role TO 'student_user'@'localhost';
-
-REVOKE INSERT ON StudentLibraryDB.book_info FROM assistant_role;
-```
+  * GRANT
+  * REVOKE
+  * CREATE USER
+  * CREATE ROLE
+* How to use parameterized queries in Python
+* How to connect frontend with backend
 
 ---
 
-## 🛡️ SQL Injection Protection
+## 🛡️ SQL Injection Example
 
-❌ Unsafe Query:
+❌ Wrong way:
 
-```python
-sql = f"SELECT * FROM student WHERE name = '{user_input}'"
+```
+sql = "SELECT * FROM users WHERE name = '" + user_input + "'"
 ```
 
-✅ Safe Query:
+✅ Correct way:
 
-```python
-sql = "SELECT * FROM student WHERE name = %s"
+```
+sql = "SELECT * FROM users WHERE name = %s"
 cursor.execute(sql, (user_input,))
 ```
 
@@ -98,35 +94,29 @@ cursor.execute(sql, (user_input,))
 SecureLibraryDB/
 │── app.py
 │── library.db
-│── Secure_LibraryDB_v2.sql
 │── requirements.txt
-│── Procfile
+│── README.md
 │── templates/
 │    └── index.html
-│── README.md
 ```
 
 ---
 
-## 👥 Roles
+## 👥 Roles in This Project
 
-| Role         | Permissions   |
-| ------------ | ------------- |
-| 👑 Librarian | Full Access   |
-| 📋 Assistant | Read + Insert |
-| 🎓 Student   | Read Only     |
+* 👑 Librarian → Full access
+* 📋 Assistant → Can read and add data
+* 🎓 Student → Can only view books
 
 ---
 
-## 💡 Learning Outcome
+## 📌 Note
 
-* Understanding of Database Security
-* Practical use of DCL commands
-* Prevention of SQL Injection
-* Backend + Database Integration
+This project is made for learning database security and backend concepts.
+It is not a production-level system.
 
 ---
 
-## 📌 Author
+## 🙋‍♂️ Author
 
-Made with ❤️ using Flask & MySQL
+Made by a student while learning Flask and Database 🙂
