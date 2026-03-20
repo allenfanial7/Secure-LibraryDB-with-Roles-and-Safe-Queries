@@ -119,4 +119,4 @@ It is not a production-level system.
 
 ## 🙋‍♂️ Author
 
-Made by a student while learning Flask and Database 🙂
+Made by ALLEN FANIAL while learning Flask and Database 🙂
